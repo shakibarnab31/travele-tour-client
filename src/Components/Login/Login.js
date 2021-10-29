@@ -1,12 +1,25 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import useFirebase from '../../hooks/useFirebse';
+import { useHistory, useLocation } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 import './Login.css'
 
 const Login = () => {
-    const { user, signInWithGoogle } = useFirebase();
+    const { user, setUser, setError, setIsLoading, signInWithGoogle } = useAuth();
+
+    const location = useLocation()
+    const history = useHistory()
+    const redirect_uri = location.state?.from || "/home"
     const handleGoogleSignIn = () => {
-        signInWithGoogle();
+        signInWithGoogle()
+            .then(result => {
+                history.push(redirect_uri)
+                setUser(result.user)
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+            .finally(() => setIsLoading(false));
     }
     return (
         <div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebse';
+import useAuth from '../../hooks/useAuth';
 import navImg from '../../images/travele-img.png'
 
 const Header = () => {
-    const { user, logOut } = useFirebase();
+    const { user, logOut } = useAuth();
     const handleLogOut = () => {
         logOut();
     }
