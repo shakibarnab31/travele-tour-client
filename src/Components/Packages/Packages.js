@@ -14,8 +14,9 @@ const Packages = () => {
     }, [])
     return (
         <div>
-            <h2>Our packages</h2>
-            <Container>
+
+            <Container className="my-5">
+                <h2 className="my-5">Our packages</h2>
                 <Row className="gy-4">
                     {packages.map(pk => (
                         < Col md={4} sm={12} key={pk._id} >
@@ -28,12 +29,13 @@ const Packages = () => {
                                         <h5> ${pk.price}</h5>
                                     </div>
 
-                                    <Card.Text>
+                                    <Card.Text className="text-start">
                                         <small>{pk.description.slice(0, 150)}</small>
+                                        <Link to={`/booking/${pk._id}`}><Button className="btn-success mt-2 ">Book Now</Button></Link>
                                     </Card.Text>
 
                                 </Card.Body>
-                                <Link to={`/booking/${pk._id}`}><Button className="btn-success">Book Now</Button></Link>
+
                             </Card>
 
                         </Col>
