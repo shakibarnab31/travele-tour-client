@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './Login.css'
@@ -28,7 +28,9 @@ const Login = () => {
                     <Col className="mt-5" >
                         <div >
                             <h2>plese login</h2>
+
                             <Button onClick={handleGoogleSignIn}>signin with Google</Button>
+
                         </div>
                     </Col>
                 </Row>

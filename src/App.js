@@ -5,6 +5,7 @@ import BookingPackage from './Components/BookingPackage/BookingPackage';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Mybooking from './Components/MyBooking/Mybooking';
 
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
@@ -26,6 +27,9 @@ function App() {
             <PrivateRoute path="/booking/:bookingId">
               <BookingPackage></BookingPackage>
             </PrivateRoute>
+            <Route path="/myBooking">
+              <Mybooking></Mybooking>
+            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>

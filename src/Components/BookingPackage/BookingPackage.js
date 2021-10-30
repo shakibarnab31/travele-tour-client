@@ -7,7 +7,6 @@ import useAuth from '../../hooks/useAuth';
 
 
 
-
 const BookingPackage = () => {
     const [singlePackage, setSinglePackage] = useState({})
     const { bookingId } = useParams();
@@ -23,46 +22,64 @@ const BookingPackage = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        let bk = singlePackage;
-        bk.buyer = data;
-        bk.email = data.email;
-        console.log(bk)
+        let bookedPackage = data;
+        bookedPackage.packageName = singlePackage.name;
+        bookedPackage.img = singlePackage.img;
+        bookedPackage.status = 'pending';
 
-        console.log(data)
+        fetch('http://localhost:5000/bookedPackage', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookedPackage)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('Your request has placed for approval')
+                }
+
+            })
     };
 
 
     return (
         <div>
-            <h2>Please book {bookingId}</h2>
-            <Container>
+            <Container className="my-5">
                 <Row>
-                    <Col md={6} sm={12}>
+                    <Col md={8} sm={12}>
                         <img src={img} className="img-fluid" alt="" />
-                        <h3>{name}</h3>
-                        <div className="d-flex justify-content-between">
-                            <p>Location: {location}</p>
-                            <h5> ${price}</h5>
+                        <div className="mx-5">
+                            <h3>{name}</h3>
+                            <div className="d-flex justify-content-between">
+                                <p>Location: {location}</p>
+                                <h5> ${price}</h5>
+                            </div>
+                            <p className="text-start">{description}</p>
                         </div>
-                        <p>{description}</p>
                     </Col>
-                    <Col md={6}>
-
+                    <Col md={4} sm={12}>
+                        <h3 className="mb-3">Booking Form</h3>
                         <Form onSubmit={handleSubmit(onSubmit)}>
-                            <Form.Control {...register("Name")} type="name" defaultValue={user.displayName} />
+                            <Form.Control className="mb-2" {...register("name")} type="name" defaultValue={user.displayName} />
 
-                            <Form.Control {...register("Email")} type="email" defaultValue={user.email} />
-                            <Form.Control {...register("city")} type="text" placeholder="City" />
-                            <br />
-                            <Form.Control as="textarea" {...register("address")} cols="30" rows="2" />
+                            <Form.Control className="mb-2" {...register("email")} type="email" defaultValue={user.email} />
+                            <Form.Control className="mb-2" as="textarea" {...register("address")} cols="30" rows="2" placeholder="Address" />
+                            <Form.Control className="mb-2" {...register("city")} type="text" placeholder="City" />
+                            <Form.Control className="mb-2" {...register("country")} type="text" placeholder="Country" />
+
+                            <Form.Control className="mb-2" {...register("phone")} type="number" placeholder="Phone Number" />
+                            <Form.Control className="mb-2" {...register("tourDuration")} type="number" placeholder="Tour Duration(Days)" />
+                            <Form.Control className="mb-2" {...register("date")} type="date" placeholder="Date" />
 
                             <Form.Control className="bg-primary text-white" type="submit" />
                         </Form>
 
                     </Col>
                 </Row>
-                <Row>
-                    <h3>Top Attraction</h3>
+                <Row className="my-5">
+                    <h3 className="my-5">Top Attraction</h3>
                     {attraction?.map(place => (
                         <Col key={place.place} md={3} sm={12}>
                             <Card>
