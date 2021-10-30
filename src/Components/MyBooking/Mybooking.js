@@ -44,11 +44,11 @@ const Mybooking = () => {
     }
     return (
         <div>
-            <h2>This is my booking</h2>
             <Container>
+                <h2 className="my-5">My Bookings</h2>
                 <Row>
                     {myBooking.map(myPackage => (
-                        <Col md={3}>
+                        <Col md={3} key={myPackage._id}>
                             <Card>
                                 <Card.Img variant="top" src={myPackage.img} />
                                 <Card.Body>

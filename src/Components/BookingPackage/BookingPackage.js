@@ -11,7 +11,6 @@ const BookingPackage = () => {
     const [singlePackage, setSinglePackage] = useState({})
     const { bookingId } = useParams();
     const { user } = useAuth();
-    console.log(singlePackage)
     const { name, location, description, img, price, attraction } = singlePackage;
     useEffect(() => {
         const url = `http://localhost:5000/packages/${bookingId}`;
@@ -20,7 +19,7 @@ const BookingPackage = () => {
             .then(data => setSinglePackage(data))
     }, []);
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         let bookedPackage = data;
         bookedPackage.packageName = singlePackage.name;
@@ -39,6 +38,7 @@ const BookingPackage = () => {
                 if (result.insertedId) {
                     alert('Your request has placed for approval')
                 }
+                reset();
 
             })
     };
@@ -78,7 +78,7 @@ const BookingPackage = () => {
 
                     </Col>
                 </Row>
-                <Row className="my-5">
+                <Row className="my-5" >
                     <h3 className="my-5">Top Attraction</h3>
                     {attraction?.map(place => (
                         <Col key={place.place} md={3} sm={12}>
