@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Package.css'
 
 const Packages = () => {
     const [packages, setPackages] = useState([]);
@@ -13,14 +14,14 @@ const Packages = () => {
             .then(data => setPackages(data))
     }, [])
     return (
-        <div>
+        <div className="package">
 
-            <Container className="my-5">
+            <Container className="py-5">
                 <h2 className="my-5">Our packages</h2>
                 <Row className="gy-4">
                     {packages.map(pk => (
                         < Col md={4} sm={12} key={pk._id} >
-                            <Card>
+                            <Card className="border-0 package-card">
                                 <Card.Img variant="top" src={pk.img} />
                                 <Card.Body>
                                     <Card.Title>{pk.name}</Card.Title>
@@ -31,9 +32,11 @@ const Packages = () => {
 
                                     <Card.Text className="text-start">
                                         <small>{pk.description.slice(0, 150)}</small>
-                                        <Link to={`/booking/${pk._id}`}><Button className="btn-success mt-2 ">Book Now</Button></Link>
-                                    </Card.Text>
 
+                                    </Card.Text>
+                                    <div className="text-start">
+                                        <Link to={`/booking/${pk._id}`}><Button className="btn-success mt-2 ">Book Now</Button></Link>
+                                    </div>
                                 </Card.Body>
 
                             </Card>

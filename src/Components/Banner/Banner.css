@@ -1,20 +1,22 @@
 .banner{
     background-image: url('../../images/banner/banner-1.jpg');
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-position:center;
     background-repeat: no-repeat;
-    /* background-size: 100% 100%; */
+    
 }
 
 .banner-title{
     margin-top: 100px;
-    border:4px solid white;
+    border:7px solid white;
     padding: 10px;
+    
+  
 }
 .banner-title h1{
     font-size: 55px;
     font-weight: 700;
-    color:rgb(7, 58, 37);
+    color:rgb(87, 19, 19);
     
 }

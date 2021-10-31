@@ -24,14 +24,16 @@ const Login = () => {
     return (
         <div>
             <Container className="mx-auto">
-                <Row>
-                    <Col className="mt-5" >
-                        <div >
-                            <h2>plese login</h2>
-
-                            <Button onClick={handleGoogleSignIn}>signin with Google</Button>
+                <Row >
+                    <Col className="mt-5 pt-5" md={6} sm={12} >
+                        <h2 className="mb-5">Please login</h2>
+                        <div className="border p-5 w-75 mx-auto" >
+                            <Button onClick={handleGoogleSignIn}>Signin With Google</Button>
 
                         </div>
+                    </Col>
+                    <Col md={6} sm={12}>
+                        <img src="https://i.ibb.co/nk0jCFX/login.jpg" className="img-fluid" alt="" />
                     </Col>
                 </Row>
             </Container>
