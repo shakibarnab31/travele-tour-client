@@ -1,6 +1,7 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import AddPackage from './Components/AddPackage/AddPackage';
 import BookingPackage from './Components/BookingPackage/BookingPackage';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -30,15 +31,18 @@ function App() {
             <PrivateRoute path="/booking/:bookingId">
               <BookingPackage></BookingPackage>
             </PrivateRoute>
-            <Route path="/myBooking">
+            <PrivateRoute path="/myBooking">
               <Mybooking></Mybooking>
-            </Route>
-            <Route path="/manageAllBookings">
+            </PrivateRoute>
+            <PrivateRoute path="/addPackage">
+              <AddPackage></AddPackage>
+            </PrivateRoute>
+            <PrivateRoute path="/manageAllBookings">
               <ManageAllBookings></ManageAllBookings>
-            </Route>
-            <Route path="/updateStatus/:bookedId">
+            </PrivateRoute>
+            <PrivateRoute path="/updateStatus/:bookedId">
               <UpdateStatus></UpdateStatus>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
