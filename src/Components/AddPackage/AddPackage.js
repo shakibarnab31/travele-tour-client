@@ -25,7 +25,7 @@ const AddPackage = () => {
         attraction.push(attraction4);
 
         addPackage.attraction = attraction;
-        fetch('http://localhost:5000/addPackage', {
+        fetch('https://frightful-fangs-32652.herokuapp.com/addPackage', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

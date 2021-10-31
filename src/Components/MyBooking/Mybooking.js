@@ -13,7 +13,7 @@ const Mybooking = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myBooking/${user?.email}`)
+        fetch(`https://frightful-fangs-32652.herokuapp.com/myBooking/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyBooking(data)
@@ -23,7 +23,7 @@ const Mybooking = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this?');
         if (proceed) {
-            fetch(`http://localhost:5000/deletePackage/${id}`, {
+            fetch(`https://frightful-fangs-32652.herokuapp.com/deletePackage/${id}`, {
                 method: "DELETE",
                 headers: {
                     'content-type': 'application/json'

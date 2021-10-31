@@ -14,13 +14,13 @@ const UpdateStatus = () => {
     const redirect_uri = '/manageAllBookings'
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookedPackage/${bookedId}`)
+        fetch(`https://frightful-fangs-32652.herokuapp.com/bookedPackage/${bookedId}`)
             .then(res => res.json())
             .then(data => setBookedPackage(data))
     }, [isUpdated])
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/updateStatus/${bookedId}`, {
+        fetch(`https://frightful-fangs-32652.herokuapp.com/updateStatus/${bookedId}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

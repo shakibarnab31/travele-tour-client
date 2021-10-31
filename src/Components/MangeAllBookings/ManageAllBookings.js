@@ -8,7 +8,7 @@ const ManageAllBookings = () => {
     const [control, setControl] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allBookings')
+        fetch('https://frightful-fangs-32652.herokuapp.com/allBookings')
             .then(res => res.json())
             .then(data => setAllBookings(data))
     }, [control])
@@ -16,7 +16,7 @@ const ManageAllBookings = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this?');
         if (proceed) {
-            fetch(`http://localhost:5000/deleteBooking/${id}`, {
+            fetch(`https://frightful-fangs-32652.herokuapp.com/deleteBooking/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

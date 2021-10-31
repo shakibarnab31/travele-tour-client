@@ -13,7 +13,7 @@ const BookingPackage = () => {
     const { user } = useAuth();
     const { name, location, description, img, price, attraction } = singlePackage;
     useEffect(() => {
-        const url = `http://localhost:5000/packages/${bookingId}`;
+        const url = `https://frightful-fangs-32652.herokuapp.com/packages/${bookingId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSinglePackage(data))
@@ -26,7 +26,7 @@ const BookingPackage = () => {
         bookedPackage.img = singlePackage.img;
         bookedPackage.status = 'pending';
 
-        fetch('http://localhost:5000/bookedPackage', {
+        fetch('https://frightful-fangs-32652.herokuapp.com/bookedPackage', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
