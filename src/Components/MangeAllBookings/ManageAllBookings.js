@@ -65,7 +65,7 @@ const ManageAllBookings = () => {
                                 <td>{singleBooking.city}</td>
                                 <td>{singleBooking.phone}</td>
                                 <td>{singleBooking.status}</td>
-                                <td><Button onClick={() => handleDelete(singleBooking._id)}>Delete</Button></td>
+                                <td><Button className="bg-danger" onClick={() => handleDelete(singleBooking._id)}>Delete</Button></td>
                                 <td><Link to={`/updateStatus/${singleBooking._id}`}><Button>Approved</Button></Link></td>
                             </tr>
                         </tbody>

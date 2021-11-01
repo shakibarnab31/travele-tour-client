@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import './AddPackage.css'
 const AddPackage = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -41,7 +42,7 @@ const AddPackage = () => {
             })
     };
     return (
-        <div>
+        <div className="add-package">
 
             <Container>
                 <Row>

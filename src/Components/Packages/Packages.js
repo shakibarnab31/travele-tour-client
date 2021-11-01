@@ -24,10 +24,10 @@ const Packages = () => {
                             <Card className="border-0 package-card">
                                 <Card.Img variant="top" src={pk.img} />
                                 <Card.Body>
-                                    <Card.Title>{pk.name}</Card.Title>
+                                    <Card.Title className="text-start"><h3>{pk.name}</h3></Card.Title>
                                     <div className="d-flex justify-content-between">
-                                        <p>Location: {pk.location}</p>
-                                        <h5> ${pk.price}</h5>
+                                        <p className="text-success">Location: {pk.location}</p>
+                                        <h5 className="text-warning"> ${pk.price}</h5>
                                     </div>
 
                                     <Card.Text className="text-start">

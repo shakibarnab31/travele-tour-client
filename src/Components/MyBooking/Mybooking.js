@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import './Mybooking.css'
 
 
 const Mybooking = () => {
@@ -43,9 +44,9 @@ const Mybooking = () => {
 
     }
     return (
-        <div>
-            <Container>
-                <h2 className="my-5">My Bookings</h2>
+        <div className="my-booking">
+            <Container className="py-5" >
+                <h2 className="pb-5">My Bookings</h2>
                 <Row>
                     {myBooking.map(myPackage => (
                         <Col md={3} key={myPackage._id}>
@@ -57,7 +58,7 @@ const Mybooking = () => {
                                         <p>Date: {myPackage.date}</p>
                                         <p>Duration: {myPackage.tourDuration} Days</p>
                                         <p> Satus: {myPackage.status}</p>
-                                        <Button onClick={() => handleDelete(myPackage._id)} className="btn-danger">Delete</Button>
+                                        <Button onClick={() => handleDelete(myPackage._id)} className="btn-danger">Cancel</Button>
                                     </Card.Text>
 
                                 </Card.Body>
