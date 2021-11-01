@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="bg-dark">
             <Container>
-                <Row className=" g-4 text-white">
+                <Row className="g-4 text-white">
                     <Col lg={6} sm={12} >
                         <img src="https://demo.bosathemes.com/html/travele/assets/images/travele-logo.png" alt="" />
                         <h3 className="my-3" >Travele Tour Agency</h3>

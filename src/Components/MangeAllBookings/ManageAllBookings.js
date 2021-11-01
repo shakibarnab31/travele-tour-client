@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Table, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './ManageAllBookings.css'
 
 const ManageAllBookings = () => {
     const [allBookings, setAllBookings] = useState([]);
@@ -35,9 +36,9 @@ const ManageAllBookings = () => {
     }
 
     return (
-        <div>
-            <Container>
-                <h2 className="my-4">All Bookings</h2>
+        <div className="all-bookings">
+            <Container className="pb-5">
+                <h2 className="py-5">All Bookings</h2>
                 <Table responsive striped bordered hover variant="dark">
                     <thead>
                         <tr>

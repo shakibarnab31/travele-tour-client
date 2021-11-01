@@ -1,23 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Package.css'
 
+
 const Packages = () => {
     const [packages, setPackages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetch('https://frightful-fangs-32652.herokuapp.com/packages')
             .then(res => res.json())
             .then(data => setPackages(data))
+            .finally(() => setIsLoading(false))
     }, [])
+
     return (
         <div className="package">
-
+            {isLoading && <Spinner animation="border" variant="danger" />}
             <Container className="py-5">
-                <h2 className="my-5">Our packages</h2>
+                {!isLoading && <h2 className="my-5">Our packages</h2>}
                 <Row className="gy-4">
                     {packages.map(pk => (
                         < Col md={4} sm={12} key={pk._id} >
