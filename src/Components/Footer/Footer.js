@@ -10,7 +10,7 @@ const Footer = () => {
                     <Col lg={6} sm={12} >
                         <img src="https://demo.bosathemes.com/html/travele/assets/images/travele-logo.png" alt="" />
                         <h3 className="my-3" >Travele Tour Agency</h3>
-                        <p>Get a holiday and book Package of us.We are always with you to explore the world.
+                        <p>Get a holiday and book packages of us.We are always with you to explore the world.
                         </p>
                     </Col>
                     <Col lg={6} sm={12} >
